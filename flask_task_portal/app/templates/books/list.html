@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}Books · Simple Library{% endblock %}
+{% block content %}
+<div class="heading"><h1>Books</h1><a class="button" href="{{ url_for('books.add_book') }}">Add book</a></div>
+{% if books %}
+<table><tr><th>ID</th><th>Title</th><th>Author</th><th>Published year</th><th>Action</th></tr>
+{% for book in books %}
+<tr><td>{{ book.id }}</td><td>{{ book.title }}</td><td>{{ book.author }}</td><td>{{ book.published_year }}</td><td><form method="post" action="{{ url_for('books.delete_book', book_id=book.id) }}"><button class="danger">Delete</button></form></td></tr>
+{% endfor %}</table>
+{% else %}<p>No books yet. Use “Add book” to create the first record.</p>{% endif %}
+<p>JSON API: <a href="{{ url_for('books.api_books') }}">{{ url_for('books.api_books') }}</a></p>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}Home · Simple Library{% endblock %}
+{% block content %}
+<h1>Simple Library Management</h1>
+<p>This beginner project has exactly three modules. Each module stores three main fields in MySQL.</p>
+<div class="grid">
+    <section class="card"><h2>Books</h2><p>Fields: title, author, published year.</p><a class="button" href="{{ url_for('books.list_books') }}">Open Books</a></section>
+    <section class="card"><h2>Members</h2><p>Fields: name, email, phone.</p><a class="button" href="{{ url_for('members.list_members') }}">Open Members</a></section>
+    <section class="card"><h2>Reservations</h2><p>Fields: book, member, reservation date.</p><a class="button" href="{{ url_for('reservations.list_reservations') }}">Open Reservations</a></section>
+</div>
+<h2>Jinja examples on this page</h2>
+<pre>{{ "{{ url_for('books.list_books') }}" }}
+{{ "{{ variable }}" }}
+{% raw %}{% for item in items %} ... {% endfor %}{% endraw %}</pre>
+{% endblock %}

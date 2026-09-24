@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}Members · Simple Library{% endblock %}
+{% block content %}
+<div class="heading"><h1>Members</h1><a class="button" href="{{ url_for('members.add_member') }}">Add member</a></div>
+{% if members %}
+<table><tr><th>ID</th><th>Name</th><th>Email</th><th>Phone</th><th>Action</th></tr>
+{% for member in members %}
+<tr><td>{{ member.id }}</td><td>{{ member.name }}</td><td>{{ member.email }}</td><td>{{ member.phone }}</td><td><form method="post" action="{{ url_for('members.delete_member', member_id=member.id) }}"><button class="danger">Delete</button></form></td></tr>
+{% endfor %}</table>
+{% else %}<p>No members yet. Use “Add member” to create the first record.</p>{% endif %}
+<p>JSON API: <a href="{{ url_for('members.api_members') }}">{{ url_for('members.api_members') }}</a></p>
+{% endblock %}

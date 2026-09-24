@@ -1,0 +1,23 @@
+{
+  "info": {
+    "name": "Simple Library Flask API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [{"key": "base_url", "value": "http://127.0.0.1:5000"}],
+  "item": [
+    {"name": "Books - List", "request": {"method": "GET", "url": "{{base_url}}/books/api"}},
+    {"name": "Books - Create", "request": {"method": "POST", "header": [{"key": "Content-Type", "value": "application/json"}], "body": {"mode": "raw", "raw": "{\n  \"title\": \"Flask for Beginners\",\n  \"author\": \"Learning Author\",\n  \"published_year\": 2026\n}"}, "url": "{{base_url}}/books/api"}},
+    {"name": "Books - Get One", "request": {"method": "GET", "url": "{{base_url}}/books/api/1"}},
+    {"name": "Books - Update", "request": {"method": "PUT", "header": [{"key": "Content-Type", "value": "application/json"}], "body": {"mode": "raw", "raw": "{\n  \"title\": \"Flask for Complete Beginners\",\n  \"author\": \"Learning Author\",\n  \"published_year\": 2026\n}"}, "url": "{{base_url}}/books/api/1"}},
+    {"name": "Books - Delete", "request": {"method": "DELETE", "url": "{{base_url}}/books/api/1"}},
+    {"name": "Members - List", "request": {"method": "GET", "url": "{{base_url}}/members/api"}},
+    {"name": "Members - Create", "request": {"method": "POST", "header": [{"key": "Content-Type", "value": "application/json"}], "body": {"mode": "raw", "raw": "{\n  \"name\": \"Asha Kumar\",\n  \"email\": \"asha@example.com\",\n  \"phone\": \"555-0101\"\n}"}, "url": "{{base_url}}/members/api"}},
+    {"name": "Members - Get One", "request": {"method": "GET", "url": "{{base_url}}/members/api/1"}},
+    {"name": "Members - Update", "request": {"method": "PUT", "header": [{"key": "Content-Type", "value": "application/json"}], "body": {"mode": "raw", "raw": "{\n  \"name\": \"Asha K.\",\n  \"email\": \"asha@example.com\",\n  \"phone\": \"555-0102\"\n}"}, "url": "{{base_url}}/members/api/1"}},
+    {"name": "Members - Delete", "request": {"method": "DELETE", "url": "{{base_url}}/members/api/1"}},
+    {"name": "Reservations - List", "request": {"method": "GET", "url": "{{base_url}}/reservations/api"}},
+    {"name": "Reservations - Create", "request": {"method": "POST", "header": [{"key": "Content-Type", "value": "application/json"}], "body": {"mode": "raw", "raw": "{\n  \"book_id\": 1,\n  \"member_id\": 1,\n  \"reservation_date\": \"2026-08-24\"\n}"}, "url": "{{base_url}}/reservations/api"}},
+    {"name": "Reservations - Get One", "request": {"method": "GET", "url": "{{base_url}}/reservations/api/1"}},
+    {"name": "Reservations - Delete", "request": {"method": "DELETE", "url": "{{base_url}}/reservations/api/1"}}
+  ]
+}

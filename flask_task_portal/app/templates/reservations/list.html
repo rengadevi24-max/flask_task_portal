@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}Reservations · Simple Library{% endblock %}
+{% block content %}
+<div class="heading"><h1>Reservations</h1><a class="button" href="{{ url_for('reservations.add_reservation') }}">Add reservation</a></div>
+{% if reservations %}
+<table><tr><th>ID</th><th>Book</th><th>Member</th><th>Date</th><th>Action</th></tr>
+{% for reservation in reservations %}
+<tr><td>{{ reservation.id }}</td><td>{{ reservation.book_title }}</td><td>{{ reservation.member_name }}</td><td>{{ reservation.reservation_date }}</td><td><form method="post" action="{{ url_for('reservations.delete_reservation', reservation_id=reservation.id) }}"><button class="danger">Delete</button></form></td></tr>
+{% endfor %}</table>
+{% else %}<p>No reservations yet. Add a book and member first.</p>{% endif %}
+<p>JSON API: <a href="{{ url_for('reservations.api_reservations') }}">{{ url_for('reservations.api_reservations') }}</a></p>
+{% endblock %}

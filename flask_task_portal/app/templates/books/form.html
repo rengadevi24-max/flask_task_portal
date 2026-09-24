@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}Add Book · Simple Library{% endblock %}
+{% block content %}
+<h1>Add a book</h1>
+<form method="post" class="card">
+    <label>Title
+        <input type="text" name="title" required>
+    </label>
+    <label>Author
+        <input type="text" name="author" required>
+    </label>
+    <label>Published year
+        <input type="number" name="published_year" required>
+    </label>
+    <button type="submit">Save book</button>
+</form>
+<p>These three form names become <code>request.form.get()</code> values in the route.</p>
+{% endblock %}
